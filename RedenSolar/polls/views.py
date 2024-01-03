@@ -157,11 +157,11 @@ def ajout_article(request):
 
         article = MainCourante(constat=iddefaut, dateHeureConstat=formatted_date_str_debut, dateHeureActionCorrective=formatted_date_str_fin, idCentrale_id=centrale_value, actionCorrective=idcommentaires, materielImpacte=idequipementEndommage)
         article.save()
-        #calculCentrale=ModelCalcul.objects.filter(idModelCalcul=donnees.idModelCalcul_id).first().nom
-        #if calculCentrale== 'Albioma':
-        calculAlbioma(data_centrale_dispo)
-        #elif calculCentrale=='EOS':
-         #   calculEOS(data_centrale_dispo)
+        calculCentrale=ModelCalcul.objects.filter(idModelCalcul=donnees.).first().nom
+        if calculCentrale== 'Albioma':
+            calculAlbioma(data_centrale_dispo)
+        elif calculCentrale=='EOS':
+            calculEOS(data_centrale_dispo)
 
         return JsonResponse({'message': 'Article ajouté avec succès.'})
         
